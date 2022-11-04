@@ -4,15 +4,13 @@ import (
 	"github.com/yomorun/y3"
 )
 
-// Tag is used for data router
+// Tag is used for representing user defined data, system use Tag to route data to different handlers.
 type Tag uint32
 
-// PayloadFrame is a Y3 encoded bytes, Tag is a fixed value TYPE_ID_PAYLOAD_FRAME
-// the Len is the length of Val. Val is also a Y3 encoded PrimitivePacket, storing
-// raw bytes as user's data
+// PayloadFrame is a Y3 encoded bytes, .
 type PayloadFrame struct {
-	Tag      Tag
-	Carriage []byte
+	Tag      Tag    // Tag is defined by user
+	Carriage []byte // Carriage is user's payload
 }
 
 // NewPayloadFrame creates a new PayloadFrame with a given TagID of user's data
